@@ -1,0 +1,15 @@
+- id: bazel-jsonnetfmt
+  name: jsonnetfmt
+  description: "Run jsonnetfmt"
+  entry: bazel run --run_under='cd $BUILD_WORKING_DIRECTORY &&' @jsonnet//cmd:jsonnetfmt -- -i
+  language: system
+  minimum_pre_commit_version: 2.13.0
+  require_serial: true
+  types: [jsonnet]
+- id: jsonnetfmt
+  name: jsonnetfmt
+  description: "Run jsonnetfmt"
+  entry: jsonnetfmt -i
+  language: system
+  minimum_pre_commit_version: 2.13.0
+  types: [jsonnet]
